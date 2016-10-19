@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F0366F46-BE3C-410E-B2CE-95076994BF5A}</ProjectGuid>
-    <RootNamespace>UE2</RootNamespace>
+    <ProjectGuid>{F6182E7F-755D-49C7-90A5-332ECC382D8D}</ProjectGuid>
+    <RootNamespace>UE3</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -110,11 +110,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ascii.c" />
-    <ClCompile Include="main.c" />
+    <ClInclude Include="hanoi.h" />
+    <ClInclude Include="potenzfunktion.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ascii.h" />
+    <ClCompile Include="hanoi.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="potenzfunktion.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
