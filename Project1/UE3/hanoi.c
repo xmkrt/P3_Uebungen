@@ -2,7 +2,7 @@
 
 void hanoi(int n, char source, char destination, char by)
 {
-
+	counter++;
 	if (n == 1)
 		printf("Verschiebe von %c nach %c\n", source, destination);
 	else {
