@@ -15,27 +15,12 @@
 #define w6 0b1001001
 #define w7 0b10010010
 #define w8 0b100100100
+#define voll 0b111111111
 
 //Belegeung des Spielfeldes
-belegt = 0;
-spieler = 0;
-computer = 0;
-
-
-/*//Gewinnzustände 
-//horizontal
- w1 = 0b111;
-w2 = 0b111000;
-w3 = 0b111000000;
-//diagonal
-w4 = 0b1010100;
-w5 = 0b100010001;
-//vertikal
-w6 = 0b1001001;
-w7 = 0b10010010;
-w8 = 0b100100100;
-*/
-
+int belegt = 0;
+int spieler = 0;
+int computer = 0;
 
 void tictactoe()
 {
@@ -48,10 +33,6 @@ void tictactoe()
 }
 
 int feld(int f) {
-	// int feld_belegt = (belegt & (1 << f));
-	// int feld_s = (spieler & (1 << f));
-	// int feld_c = (computer & (1 << f));
-
 	// Wenn Feld belegt, etnsprechendes Zeichen zurückgeben
 	if (spieler & (1 << f))
 		return 'X';
@@ -71,18 +52,18 @@ void draw()
 }
 
 void play() {
-	int p = 0;
+	int spielzug = 0;
 	int eingabe;
 	while (!win()) {
 		//Spieler
-		if (p == 0) {
+		if (spielzug == 0) {
 			printf("Zug: ");
 				eingabe = getchar() - 48;
 				getchar(); //Puffer leeren
-				if (eingabe <= 8 && eingabe >= 0 && (((1<<eingabe) & belegt) == 0)) {
+				if (eingabe <= 8 && eingabe >= 0 && (!((1<<eingabe) & belegt))) {
 					spieler = spieler | (1 << eingabe);
 					belegt = belegt | (1 << eingabe);
-					p = 1;
+					spielzug = 1;
 				}
 		}
 		//Computer
@@ -90,19 +71,23 @@ void play() {
 			printf("Computer ist am Zug\n");
 			do {
 				eingabe = rand() % 9;
-			} while (((1 << eingabe) & belegt) != 0);
+			} while (((1 << eingabe) & belegt));
 			computer = computer | (1 << eingabe);
 			belegt = belegt | (1 << eingabe);
-			p = 0;
+			spielzug = 0;
 		} 
 		draw();		
 	}
-	if (win() == 1)
-		printf("Spieler ha gewonnen!");
-	else printf("Computer hat gewonnen!");
+	int gewinner = win();
+	if (gewinner == 1)
+		printf("Spieler hat gewonnen!");
+	else if (gewinner == 2)
+		printf("Computer hat gewonnen!");
+	else if (gewinner == 3)
+		printf("Unentschieden.");
 }
 
-//return 0 bei keinem Gewinn, 1 bei Spieler, 2 bei Computer
+//return 0 bei keinem Gewinn, 1 bei Spieler, 2 bei Computer, 3 bei unentschieden
 int win()
 {
 	if ((w1 & spieler) == w1)
@@ -138,6 +123,9 @@ int win()
 		return 2;
 	if ((w8 & computer) == w8)
 		return 2;
+
+	if ((voll & belegt) == voll)
+		return 3;
 	return 0;
 }
 
