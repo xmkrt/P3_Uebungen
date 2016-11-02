@@ -1,14 +1,18 @@
 #include "gleichung.h"
 #include <math.h>
 
-void gleichung(int a, int b, int c, double *x1, double *x2) {
-	double p = b / a;
-	double q = c / a;
+int gleichung(int p, int q, double *x1, double *x2) {
 
-	double d = p*p / 4 - q;
+	double d = p*p / 4.0 - q;
 
 	if (d >= 0) {
-		*x1 = -p / 2 + sqrt(d);
-		*x2 = -p / 2 - sqrt(d);
+		*x1 = -p / 2.0 + sqrt(d);
+		*x2 = -p / 2.0 - sqrt(d);
+		return 1;
+	}
+	else {
+		*x1 = -p / 2.0;
+		*x2 = sqrt(-d);
+		return 2;
 	}
 }

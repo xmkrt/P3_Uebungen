@@ -1,1 +1,1 @@
-void gleichung(int a, int b, int c, double *x1, double *x2);
+int gleichung(int p, int q, double *x1, double *x2);

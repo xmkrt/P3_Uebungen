@@ -1,21 +1,13 @@
+/*
+TicTacToe mit Bitverschiebung
+Marcel Kroth
+2.11.2016
+*/
+
 #include <stdio.h>
 #include "tictactoe.h"
 #include <stdlib.h>
 #include <time.h>
-
-//Gewinnzustände 
-//horizontal
-#define w1 0b111
-#define w2 0b111000
-#define w3 0b111000000
-//diagonal
-#define w4 0b1010100
-#define w5 0b100010001
-//vertikal
-#define w6 0b1001001
-#define w7 0b10010010
-#define w8 0b100100100
-#define voll 0b111111111
 
 //Belegeung des Spielfeldes
 int belegt = 0;
@@ -90,6 +82,22 @@ void play() {
 //return 0 bei keinem Gewinn, 1 bei Spieler, 2 bei Computer, 3 bei unentschieden
 int win()
 {
+	//Gewinnzustände
+	int w1,w2,w3,w4,w5,w6,w7,w8,unentschieden;
+	//horizontal
+	w1 = 0 | 1 | (1 << 1) | (1 << 2);
+	w2 = 0 | (1 << 3) | (1 << 4) | (1 << 5);
+	w3 = 0 | (1 << 6) | (1 << 7) | (1 << 8);
+	//diagonal
+	w4 = 0 | (1 << 2) | (1 << 4) | (1 << 6);
+	w5 = 0 | 1 | (1 << 4) | (1 << 8);
+	//vertikal
+	w6 = 0 | 1 | (1 << 3) | (1 << 6);
+	w7 = 0 | (1 << 1) | (1 << 4) | (1 << 7);
+	w8 = 0 | (1 << 2) | (1 << 5) | (1 << 8);
+
+	unentschieden = 0 | 1 | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6) | (1 << 6) | (1 << 7) | (1 << 8);
+
 	if ((w1 & spieler) == w1)
 		return 1;
 	if ((w2 & spieler) == w2)
@@ -123,8 +131,7 @@ int win()
 		return 2;
 	if ((w8 & computer) == w8)
 		return 2;
-
-	if ((voll & belegt) == voll)
+	if (belegt == unentschieden)
 		return 3;
 	return 0;
 }
