@@ -3,24 +3,22 @@
 
 void eratosthenes(int * a_isprime, int len)
 {
-	int i = 0;
-	for (i; i < len; i++)
+	int i = 2;
+	for (i-2; i < len; i++)
 		a_isprime[i] = 1;
-	int c;
+	i = 2;
 
-	i = 0;
-	int j = 0;
-	for (i; i < len; i++) {
+	for (i-2; i < len; i++) {
 		if (a_isprime[i]) {
-			c = i + 2;
-			for (j; j < len; j++) {
-				if ((i + 3) % c)
-					a_isprime[i] = 0;v
+			for (int j = i*i; j < len; j++) {
+				if (!(j % i))
+					a_isprime[j] = 0;
 			}
-
+		}			
 	}
-	i = 0;
-	for (i; i < len; i++) {
+
+	i = 2;
+	for (i-2; i < len; i++) {
 		if (a_isprime[i])
 			printf(" %3i ", i);
 	}
