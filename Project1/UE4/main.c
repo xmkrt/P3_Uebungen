@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 	if (status == 1)
 		printf("Loesungen der Gleichung: %.2f und %.2f.", x1, x2);
 	if (status == 2)
-		printf("Loesungen der Gleichung: %.2f %c i*%.2f", x1, 241, x2);	
+		printf("Loesungen der Gleichung: %.2f %c i*%.2f", x1, 241, x2);
 	getchar();
 }
 
