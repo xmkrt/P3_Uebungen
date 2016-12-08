@@ -67,6 +67,7 @@ void compareFiles_CPP(const char * file1, const char * file2)
 	{
 		int nr = 0;
 		{
+			// streamsize bytes1 = 0, bytes2 = 0;
 			char buffer1[128];
 			char buffer2[128];
 			while (!f1.eof() || !f2.eof())
@@ -78,11 +79,9 @@ void compareFiles_CPP(const char * file1, const char * file2)
 				if (buffer1 != buffer2) {
 					cout << "Die Dateien sind unterschiedlich. Zeile: " << nr;
 					break;
-				}
-				
+				}				
 			}
 			cout << "Die Dateien sind gleich";
-
 		}
 		f1.close();
 		f2.close();
