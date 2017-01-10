@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "compare.h"
+#include <string.h>
 
 int main(int argc, char *argv[]) {
 	

@@ -1,24 +1,21 @@
+#pragma once
 /*
 Kontakt.h
-
 */
-
-
-#ifndef _H_KONTAKT
-#define _H_KONTAKT
 
 #include <iostream>
 #include <string>
 using namespace std;
 
-struct Kontakt
+class Kontakt
 {
-public:
+private:
 	char * name;
 	string vorname;
 	string telefonnr;
 	int id;
 	// Methoden
+public:
 	Kontakt(int id = 0, char * name = "", string vorname = "", string telefonnr = "");
 
 	Kontakt(const Kontakt& p);
@@ -26,5 +23,5 @@ public:
 	friend ostream & operator << (ostream & s, const Kontakt& p);
 	friend istream & operator >> (istream & s, Kontakt& p);
 };
-#endif // !_H_Kontakt
+
 
