@@ -18,7 +18,8 @@ Person::Person(const string name, const int geburtsjahr, const string beruf, con
 
 Person::Person(const string beruf, const Kontakt & k, const Adresse & a)
 {
-	this->setKontakt(k);
+	this->setName(k.getName());
+	this->setGeburtsjahr(k.getGeburtsjahr());
 	this->setAdresse(a);
 	this->setBeruf(beruf);
 }
