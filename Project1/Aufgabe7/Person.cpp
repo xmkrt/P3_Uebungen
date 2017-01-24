@@ -2,7 +2,10 @@
 
 Person::Person(const Person & p)
 {
-	*this = p;
+	this->setName(p.getName());
+	this->setGeburtsjahr(p.getGeburtsjahr());
+	this->setAdresse(p.getAdresse());
+	this->setBeruf(p.getBeruf());
 }
 
 Person::Person(const string name, const int geburtsjahr, const string beruf, const string stadt) : Kontakt(name, geburtsjahr)
@@ -18,17 +21,6 @@ Person::Person(const string beruf, const Kontakt & k, const Adresse & a)
 	this->setKontakt(k);
 	this->setAdresse(a);
 	this->setBeruf(beruf);
-}
-
-void Person::setKontakt(Kontakt k)
-{
-	this->setName(k.getName);
-	this->setGeburtsjahr(k.getGeburtsjahr);
-}
-
-Kontakt Person::getKontakt() const
-{
-	return Kontakt::Kontakt(this->getName,this->getGeburtsjahr);
 }
 
 ostream & operator<<(ostream & s, const Person & p)

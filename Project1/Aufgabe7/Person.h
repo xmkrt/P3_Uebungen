@@ -40,8 +40,5 @@ public:
 
 	~Person() {}
 
-	void setKontakt(const Kontakt k);
-	Kontakt getKontakt() const;
-
 	friend ostream& operator << (ostream& s, const Person& p);
 };
