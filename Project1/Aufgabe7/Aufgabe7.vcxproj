@@ -19,10 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9F7DF1D6-379D-4B9E-8A71-8BB823DD7BEB}</ProjectGuid>
-    <RootNamespace>Project3</RootNamespace>
+    <ProjectGuid>{9BF32E0F-8A6B-4F62-BEF7-345483EC460F}</ProjectGuid>
+    <RootNamespace>Aufgabe7</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>Strukturen</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -111,14 +110,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ausgabe.h" />
-    <ClInclude Include="klasse.h" />
-    <ClInclude Include="struktur.h" />
+    <ClInclude Include="Adresse.h" />
+    <ClInclude Include="Kontakt.h" />
+    <ClInclude Include="Person.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ausgabe.c" />
-    <ClCompile Include="klasse.cpp" />
-    <ClCompile Include="main.c" />
+    <ClCompile Include="Adresse.cpp" />
+    <ClCompile Include="Kontakt.cpp" />
+    <ClCompile Include="Person.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

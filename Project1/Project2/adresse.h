@@ -22,6 +22,8 @@ public:
 	Adresse(string StraﬂeNr = "", string PLZStadt = "");
 	Adresse(const Adresse& p);
 
+	void setStadt(string stadt);
+
 	void setStraﬂeNr(string StraﬂeNr)
 	{
 		if (StraﬂeNr != "")

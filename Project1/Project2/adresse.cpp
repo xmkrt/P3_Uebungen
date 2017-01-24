@@ -1,3 +1,4 @@
+#include "..\Aufgabe7\Kontakt.h"
 /*
 adresse.cpp
 Marcel Kroth 14.12.2016
